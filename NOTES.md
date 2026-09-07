@@ -1,5 +1,6 @@
 # Lab Notes
 
+
 ## Lab 1 — Defect Safari
 Inspect `data/raw/bayan_raw_sample.csv` and document at least six defect classes.
 For each one record: example, why it matters, and clean/preserve/task-dependent.

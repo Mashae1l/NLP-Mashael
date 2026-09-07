@@ -15,6 +15,18 @@
 - PII masking recall: 60 / 60 = 100%
 - Sequence-length histogram: `artifacts/lab1_tokenizer_lengths.png`
 
+## Lab 2 — Attention diagnostics
+
+| Check | Result |
+|---|---:|
+| Numerical equivalence | True |
+| Maximum difference | 2.38e-7 |
+| Adjacent-token attention mass | 0.3136 |
+| SEP sink mass | 0.2136 |
+| Pad mass without mask | 0.1729 |
+| Pad mass with mask | 0.0000 |
+| Causal future-attention mass | 0.0000 |
+
 ## Lab 3 — Models
 | Model | Metric | Validation | Frozen test | Train time |
 |---|---|---:|---:|---:|

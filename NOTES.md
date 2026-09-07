@@ -42,11 +42,22 @@ For each one record: example, why it matters, and clean/preserve/task-dependent.
 - Decision: Clean — correct obvious grammatical errors while preserving the original meaning.
 
 ## Lab 2 — Parameter audit
+
 | Checkpoint | Total params | Embeddings % | Other notes |
 |---|---:|---:|---|
-| mBERT | | | |
-| CAMeLBERT | | | |
+| mBERT | 177,853,440 | 51.85% | Attention: 15.95%, FFN: 31.86% |
+| CAMeLBERT | 109,081,344 | 21.49% | Attention: 26.01%, FFN: 51.95% |
+
+- Embedding-share difference: mBERT has a much larger multilingual vocabulary, so its embedding matrix consumes 51.85% of the parameters, compared with 21.49% for CAMeLBERT. This is the multilingual vocabulary tax.
 
 ## Lab 4 — Dialect audit
 - Distribution:
 - One-sentence implication for MSA-only evaluation:
+
+## Lab 2 — Attention findings
+
+- The attention implementation matched PyTorch within the required tolerance of 1e-6.
+- The causal attention matrix was lower triangular, with zero future-attention mass.
+- This masking behaviour corresponds to decoder-style causal attention.
+- The diagnostic head showed adjacent-token attention mass of 0.3136 and SEP sink mass of 0.2136.
+- Padding attention decreased from 0.1729 without a mask to 0.0000 with the correct mask, confirming that the padding mask eliminates pad-attention leakage.

@@ -3,15 +3,29 @@
 > Fill these tables from **your own runs**. Do not copy course reference numbers.
 
 ## Lab 1 — Tokenizer audit
+
 | Tokenizer | AR fertility | EN fertility | AR p95 len | EN p95 len | AR UNK rate |
 |---|---:|---:|---:|---:|---:|
-| mBERT | | | | | |
-| XLM-R | | | | | |
-| CAMeLBERT | | | | | |
-| DistilBERT | | | | | |
+| mBERT | 2.143 | 1.509 | 27.0 | 25.0 | 0.46% |
+| XLM-R | 1.667 | 1.433 | 21.0 | 23.0 | 0.00% |
+| CAMeLBERT | 1.400 | 2.704 | 20.0 | 38.0 | 0.81% |
+| DistilBERT | 4.517 | 1.297 | 47.0 | 21.0 | 0.22% |
 
-- Golden preprocessing: ___ / 25 passed
-- PII masking recall: ___ / 60 = ___%
+- Golden preprocessing: 25 / 25 passed
+- PII masking recall: 60 / 60 = 100%
+- Sequence-length histogram: `artifacts/lab1_tokenizer_lengths.png`
+
+## Lab 2 — Attention diagnostics
+
+| Check | Result |
+|---|---:|
+| Numerical equivalence | True |
+| Maximum difference | 2.38e-7 |
+| Adjacent-token attention mass | 0.3136 |
+| SEP sink mass | 0.2136 |
+| Pad mass without mask | 0.1729 |
+| Pad mass with mask | 0.0000 |
+| Causal future-attention mass | 0.0000 |
 
 ## Lab 3 — Models
 | Model | Metric | Validation | Frozen test | Train time |

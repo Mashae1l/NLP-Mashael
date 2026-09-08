@@ -16,10 +16,13 @@
 ## Lab 3 — Models
 | Model | Metric | Validation | Frozen test | Train time |
 |---|---|---:|---:|---:|
-| TF-IDF + LinearSVC | macro-F1 | | | |
-| Topic classifier | macro-F1 | | | |
+| TF-IDF + LinearSVC | macro-F1 | 1.0000 | 1.0000 | CPU |
+| Topic classifier (XLM-R) | macro-F1 | 1.0000 | 1.0000 | Colab T4, 2 epochs |
 | NER | entity-F1 | | | |
 | QA | span/null smoke | | | |
+
+- Topic-classifier frozen-test improvement over baseline: +0.0000.
+- Ceiling-effect note: The TF-IDF baseline already achieved 1.0000 macro-F1, so improving it by +0.08 was mathematically impossible on this dataset.
 
 ## Lab 4 — Arabic model bake-off
 | Checkpoint | macro-F1 all | Gulf | MSA | AR fertility |

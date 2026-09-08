@@ -30,10 +30,16 @@
 ## Lab 3 — Models
 | Model | Metric | Validation | Frozen test | Train time |
 |---|---|---:|---:|---:|
-| TF-IDF + LinearSVC | macro-F1 | | | |
-| Topic classifier | macro-F1 | | | |
-| NER | entity-F1 | | | |
-| QA | span/null smoke | | | |
+| TF-IDF + LinearSVC | macro-F1 | 1.0000 | 1.0000 | CPU |
+| Topic classifier (XLM-R) | macro-F1 | 1.0000 | 1.0000 | Colab T4, 2 epochs |
+| NER (XLM-R) | entity-F1 | 1.0000 | 1.0000 | 109.5 s, Colab T4 |
+| QA | span/null smoke | 9/9 answerable | 3/3 null | CPU |
+
+- Topic-classifier frozen-test improvement over baseline: +0.0000.
+- Ceiling-effect note: The TF-IDF baseline already achieved 1.0000 macro-F1, so improving it by +0.08 was mathematically impossible on this dataset.
+- NER alignment contract: 8/8 passed.
+- QA post-processing contract: 2/2 passed.
+- QA smoke result: 9/9 answerable and 3/3 unanswerable passed.
 
 ## Lab 4 — Arabic model bake-off
 | Checkpoint | macro-F1 all | Gulf | MSA | AR fertility |

@@ -21,7 +21,7 @@ from bayan.models.ner import align_labels
 
 
 MODEL_NAME = "xlm-roberta-base"
-DATA_PATH = Path("data/models/bayan_ner.conll")
+DATA_PATH = Path("data/models/bayan_ner_segmented.conll")
 
 
 def parse_args():

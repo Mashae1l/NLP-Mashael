@@ -51,8 +51,10 @@ For each one record: example, why it matters, and clean/preserve/task-dependent.
 - Embedding-share difference: mBERT has a much larger multilingual vocabulary, so its embedding matrix consumes 51.85% of the parameters, compared with 21.49% for CAMeLBERT. This is the multilingual vocabulary tax.
 
 ## Lab 4 — Dialect audit
-- Distribution:
-- One-sentence implication for MSA-only evaluation:
+- Arabic rows: 7,200.
+- Distribution: Gulf 4,800 (66.67%); MSA 2,400 (33.33%).
+- Split evidence: Gulf appears only in training, while the Arabic validation split contains 1,200 MSA examples and no Gulf examples.
+- One-sentence implication for MSA-only evaluation: Evaluating only on MSA does not measure performance on the Gulf-dialect population, even though Gulf feedback forms the majority of the Arabic dataset.
 
 ## Lab 2 — Attention findings
 

@@ -8,11 +8,14 @@
 - Operational trade-off / rationale: XLM-R was selected because it provides the best bilingual balance for Bayan. CAMeLBERT performed slightly better on Arabic but was considerably less efficient on English, while DistilBERT performed well on English but poorly on Arabic. XLM-R also achieved a 0.00% Arabic unknown-token rate.
 
 ## arabic-model
-- Incumbent:
-- Candidate:
-- All/Gulf/MSA evidence:
-- CI-backed verdict:
-- Segmentation contract:
+
+- Incumbent: CAMeLBERT-mix.
+- Candidate: CAMeLBERT-DA.
+- All/Gulf/MSA evidence: Both checkpoints achieved 1.0000 macro-F1 on all, Gulf, and MSA held-out slices.
+- Gulf delta: +0.0000 macro-F1 for CAMeLBERT-DA over CAMeLBERT-mix.
+- Verdict: Retain CAMeLBERT-mix because the dialect-aware candidate produced no measurable quality improvement; keep CAMeLBERT-DA as an evaluated alternative for Lab 6 sliced reporting.
+- Ceiling effect: The incumbent already scored 1.0000 on the Gulf slice, making the requested +4-point improvement impossible on this dataset.
+- Segmentation contract: CAMeL Tools d3tok was applied consistently; LOCATION recall remained 1.0000 before and after segmentation.
 
 ## search-min-score
 - Threshold:

@@ -42,11 +42,21 @@
 - QA smoke result: 9/9 answerable and 3/3 unanswerable passed.
 
 ## Lab 4 — Arabic model bake-off
-| Checkpoint | macro-F1 all | Gulf | MSA | AR fertility |
-|---|---:|---:|---:|---:|
-| multilingual incumbent | | | | |
-| Arabic dialect-aware | | | | |
-| optional third model | | | | |
+|| CAMeLBERT-mix (multilingual incumbent) | 1.0000 | 1.0000 | 1.0000 | 1.4054 |
+| CAMeLBERT-DA (Arabic dialect-aware) | 1.0000 | 1.0000 | 1.0000 | 1.4054 |
+| Optional third model | Not run | Not run | Not run | Not run |
+
+- Arabic normalisation golden pairs: 30 / 30 passed.
+- Clitic segmentation scheme: CAMeL Tools d3tok.
+- NER LOCATION recall before segmentation: 1.0000.
+- NER LOCATION recall after segmentation: 1.0000.
+- LOCATION recall delta: +0.0000.
+- Segmented NER train time: 152.38 s, Colab T4.
+- Ceiling-effect note: The original NER model already achieved 1.0000 LOCATION recall, so a +4-point improvement was mathematically impossible on this dataset.
+- CAMeLBERT-mix train time: 63.19 s, Colab T4.
+- CAMeLBERT-DA train time: 56.23 s, Colab T4.
+- Gulf macro-F1 delta (DA minus mix): +0.0000.
+- Ceiling-effect note: CAMeLBERT-mix already achieved 1.0000 Gulf macro-F1, so a +4-point improvement was mathematically impossible on this held-out dataset.
 
 ## Lab 5 — Search
 | Configuration | recall@10 | MRR@10 | p50 latency/query |

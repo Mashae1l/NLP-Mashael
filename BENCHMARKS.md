@@ -76,10 +76,10 @@
 ## Lab 6 — Evaluation
 | Model | Aggregate macro-F1 [CI] | Gulf [CI] | Invariance pass | MFT pass |
 |---|---|---|---:|---:|
-| topic classifier | | | | |
+| topic classifier | 0.8333 [0.8287, 0.8373] | N/A (no Gulf rows) | 100% (200/200) | 100% (400/400) |
 | dialect-aware | | | | |
 
-- paired comparison verdict:
+- paired comparison verdict: A paired language comparison is not valid because the Arabic and English examples are not paired. The observed Arabic-English macro-F1 gap is 0.4000, and the supplied validation predictions contain no Gulf-labelled rows.
 - error taxonomy top categories:
 - top-3 prioritised fixes:
 

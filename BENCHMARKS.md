@@ -86,11 +86,12 @@
 ## Lab 7 — Optimisation ladder
 | Rung | p50 | p99 | quality metric / paired Δ | Artefact size |
 |---|---:|---:|---|---:|
-| fp32 torch @512 padded | | | | |
-| fp32 torch @128 dynamic | | | | |
+| fp32 torch @512 padded | 1621.95 ms | 2769.36 ms | baseline | 1.1 GB |
+| fp32 torch @128 dynamic | 107.21 ms | 204.71 ms | same fp32 weights; 13.53x speedup | 1.1 GB |
 | ONNX fp32 @128 | | | | |
 | ONNX INT8 @128 | | | | |
 
+- CPU baseline: 4 threads, 10 warm-up runs, and 200 timed runs using end-to-end tokenisation and inference.
 - HTTP p99, 16 concurrent:
 - classifier quantisation decision:
 - NER quantisation decision:

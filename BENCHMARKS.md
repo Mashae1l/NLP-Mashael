@@ -59,14 +59,19 @@
 - Ceiling-effect note: CAMeLBERT-mix already achieved 1.0000 Gulf macro-F1, so a +4-point improvement was mathematically impossible on this held-out dataset.
 
 ## Lab 5 — Search
+
 | Configuration | recall@10 | MRR@10 | p50 latency/query |
 |---|---:|---:|---:|
-| bi-encoder only | | | |
-| + cross-encoder rerank | | | |
-| cross-lingual slice | | | |
+| bi-encoder only | 1.0000 | 1.0000 | 32.90 ms |
+| + cross-encoder rerank | 1.0000 | 1.0000 | 960.55 ms |
+| cross-lingual slice | 1.0000 | 1.0000 | — |
 
-- no-answer empty-correct: ___ / 20
-- cross-lingual gap: ___
+- no-answer empty-correct: 20 / 20
+- tuned no-answer threshold: -1.3641
+- cross-lingual MRR gap: 0.0000
+- reranking MRR lift: +0.0000; the bi-encoder already reached the topic-level ceiling, while reranking added substantial latency.
+- Strict-ID audit: recall@10 = 0.0077 and MRR@10 = 0.0026 for the bi-encoder; the synthetic corpus contains relevant same-topic duplicates that are absent from `relevant_case_ids`.
+- Unnormalised-vector check: topic recall@10 and MRR@10 remained 1.0000 in this run, so no ranking collapse was observed. L2 normalisation is still enforced and recorded in the manifest because raw inner-product scores are not reliably calibrated across models or datasets.
 
 ## Lab 6 — Evaluation
 | Model | Aggregate macro-F1 [CI] | Gulf [CI] | Invariance pass | MFT pass |
